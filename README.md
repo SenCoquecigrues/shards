@@ -44,7 +44,8 @@ Title will determine import type:
 
 ## Tasks
 ### TODO (goal: MVP without db)
-- CSV to character, item, domain, place, dialog
+~~- Create CSV for character, domain, place~~
+- CSV to character, domain, place
 - Creating a dialog name norm
 - Determining starting player fields
 - DB connection: starting create a player character
