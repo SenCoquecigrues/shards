@@ -1,33 +1,50 @@
 import logging, os, subprocess, sys
 
-from utils.csv_writer import CharacterWriter, DomainWriter, PlaceWriter, PlayerWriter
+from pathlib import Path
+
+from utils.csv_writer import CharacterCsvHandler, DomainCsvHandler, PlaceCsvHandler, PlayerCsvHandler, return_proper_csvhandler
 
 
 class CommandHandler:
-    def __init__(self):
+    def __init__(self, is_test=False):
+        # So that it won't get stuck if we call a command for testing.
+        if is_test:
+            return None
+
         if len(sys.argv) > 1:
             match sys.argv[1]:
                 case "generate_templates":
                     self.generate_templates()
                 case "tests":
                     self.run_tests()
+                case "import":
+                    self.import_objects_from_csv(sys.argv)
                 case _:
                     logging.error("Commande inconnue")
 
             os._exit(1)
 
     def generate_templates(self):
-        char_writer = CharacterWriter()
+        char_writer = CharacterCsvHandler()
         char_writer.write_csv()
 
-        dom_writer = DomainWriter()
+        dom_writer = DomainCsvHandler()
         dom_writer.write_csv()
 
-        place_writer = PlaceWriter()
+        place_writer = PlaceCsvHandler()
         place_writer.write_csv()
 
-        player_writer = PlayerWriter()
+        player_writer = PlayerCsvHandler()
         player_writer.write_csv()
+
+    def import_objects_from_csv(self, args):
+        if len(args) == 2:
+            raise AttributeError("Please indicate which file to import.")
+
+        file_name = args[2]
+        csv_writer = return_proper_csvhandler(file_name)
+        instances_dict = csv_writer.get_dicts_from_csv(file_name)
+
 
     """
         Command format:
@@ -54,6 +71,7 @@ class CommandHandler:
 
         except Exception as e:
             logging.error(e)
+
 
     ######## UTILS FUNCTIONS
     def handle_multi_part_test_path(self, arg):

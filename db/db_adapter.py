@@ -24,3 +24,5 @@ class DbAdapter:
     def fetch_value(self, table_name, field, value):
         if field == "id":
             return self.db_handler.get_by_key(table_name, value)
+
+    # Lucile: homemade ORM here?

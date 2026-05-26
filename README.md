@@ -25,8 +25,8 @@ It also loads its necessary components:
 - `mechanics`, which will hold inner components such as the social system, perhaps time passing, etc.
 
 ### Working functionalities
-- `python3 main.py generate_templates`: generate CSV templates to fill for imports.
-- `python3 main.py import_csv {FILE_NAME}`: import any CSV placed inside `import_files` to save it into the database. This allow us to create characters, domains, places on the fly.
+- `python3 main.py generate_templates`: generate CSV templates inside `utils/template_files` to fill for imports.
+- `python3 main.py import_csv {FILE_NAME}`: import any CSV placed inside `utils/import_files` to save it into the database. This allow us to create characters, domains, places on the fly. For file names, use `cha_` for characters, `dom_` for domains, `place_` for places, `player_` for player profiles.
 
 ### Tests
 Tests are more end-to-end than unitary.
@@ -82,7 +82,11 @@ Title will determine import type:
 ### TODO (goal: MVP without db)
 ~~- Create CSV for character, domain, place~~
 ~~- Determining starting player fields~~
-- CSV to character, domain, place
-- Creating a dialog name norm
+~~- Start test handling~~
+~~- Display adapter system (text)~~
+- DB adapter system
 - DB connection: starting create a player character
 - DB connection: remember a player's latest screen (for text platforms)
+- Ultimately, change for a trait notation system from 0 to 10
+- Creating a dialog name norm
+- CSV to character, domain, place

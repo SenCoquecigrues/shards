@@ -14,7 +14,7 @@ class GlobalConstants:
         "honesty_humility": [
             "sincerity",
             "fairness",
-            "greed avoidance",
+            "greed_avoidance",
             "modesty"
         ],
         "emotionality": [
@@ -24,8 +24,8 @@ class GlobalConstants:
             "sentimentality"
         ],
         "extraversion": [
-            "social self-esteem",
-            "social boldness",
+            "social_self-esteem",
+            "social_boldness",
             "sociability",
             "liveliness"
         ],
@@ -42,7 +42,7 @@ class GlobalConstants:
             "prudence"
         ],
         "openness_to_experience": [
-            "aesthetic appreciation",
+            "aesthetic_appreciation",
             "inquisitiveness",
             "creativity",
             "unconventionality"
@@ -59,6 +59,3 @@ class GlobalConstants:
     CHAR_BASE_ATTRIBUTES = ["reference", "name", "element", "pack"]
 
     DOMAIN_BASE_ATTRIBUTES = OBJ_BASE_ATTRIBUTES + ["level", ]
-
-    DOMAIN_BASE_ATTRIBUTES = ["save_name", "element", "dom_level"]
-
