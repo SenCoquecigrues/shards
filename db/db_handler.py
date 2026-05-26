@@ -22,7 +22,7 @@ class DBHandler:
 # Serve as an adapter with the temporary json database.
 # Later, we'll use a SQLite adapter/a Postgres adapter.
 class JsonDb:
-    def __init__(self, table_name):
+    def __init__(self):
         self.data = ""
 
     # For every request, self.get_json_data(table_name). A decorator?

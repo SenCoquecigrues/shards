@@ -1,2 +1,2 @@
-from .pages import MainPage, WelcomePage
+from .text_screens import MainScreen, WelcomeScreen
 from .commands import CommandHandler

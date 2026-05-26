@@ -1,4 +1,12 @@
 {
     "main": "This is a text",
-    "welcome": "Welcome text"
+    "welcome": {
+        "title": "<h1>Mille Éclats</h1>",
+        "explanation": "<explanation>Un jeu de collection.<explanation>",
+        "menu": [
+            "Start",
+            "Load",
+            "About"
+        ]
+    } 
 }

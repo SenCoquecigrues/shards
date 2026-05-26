@@ -14,6 +14,9 @@
 *Shards* is a complex project, and platform choice is still up in the air. Therefore, some of the most complex mechanics will be done as platform-agnostic as we can.
 **Current goal**: MVP.
 
+### Working functionalities
+`python3 main.py generate_templates`: generate CSV templates to fill for imports.
+
 ## Systems
 ### Social System
 Moving parts:

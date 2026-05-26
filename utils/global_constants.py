@@ -1,4 +1,9 @@
 class GlobalConstants:
+    ################### APP SETTINGS
+    TEXT_DISPLAYS = ("console", "discord")
+
+
+    ################### GAME SETTINGS
     SPACE = "space"
     WATER = "water"
     FORBIDDEN = "forbidden"
@@ -56,3 +61,4 @@ class GlobalConstants:
     DOMAIN_BASE_ATTRIBUTES = OBJ_BASE_ATTRIBUTES + ["level", ]
 
     DOMAIN_BASE_ATTRIBUTES = ["save_name", "element", "dom_level"]
+
