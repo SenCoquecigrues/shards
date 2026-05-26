@@ -1,2 +1,7 @@
+# ENVIRONMENT
 .idea/
+venv/
+
+# COMPILED
 **/__pycache__/**
+*.pyc
