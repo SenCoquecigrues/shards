@@ -1,7 +1,13 @@
-# ENVIRONMENT
-.idea/
-venv/
-
 # COMPILED
 **/__pycache__/**
 *.pyc
+
+
+# ENVIRONMENT
+.idea/
+venv/
+.env
+
+
+# TEMPLATES
+*.csv

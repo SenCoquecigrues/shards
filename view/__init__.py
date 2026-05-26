@@ -1,1 +1,2 @@
-from .pages import MainPage
+from .pages import MainPage, WelcomePage
+from .commands import CommandHandler

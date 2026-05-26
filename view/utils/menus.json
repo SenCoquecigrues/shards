@@ -1,10 +1,10 @@
 {
-  "welcome_menu": [
+  "welcome": [
     "Start",
     "Load",
     "About"
   ],
-  "main_menu": [
+  "main": [
     "Meditate",
     "Travel",
     "Speak"

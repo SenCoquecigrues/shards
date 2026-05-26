@@ -2,11 +2,13 @@
     "0": {
         "save_name": "Ambroise",
         "element": "forbidden",
-        "dom_level": 2
+        "dom_level": 2,
+        "current_page": "welcome"
     },
     "1": {
         "save_name": "Ichtàn",
         "element": "wound",
-        "dom_level": 1
+        "dom_level": 1,
+        "current_page": "welcome"
     }
 }

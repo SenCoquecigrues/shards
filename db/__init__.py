@@ -1,1 +1,1 @@
-from .json_adapter import JsonSaveAdapter
+from .db_adapter import DbAdapter

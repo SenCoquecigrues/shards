@@ -67,7 +67,7 @@ class PlaceWriter(CsvWriter):
 class PlayerWriter(CsvWriter):
     def __init__(self):
         super().__init__()
-        self.title = 'place_template'
+        self.title = 'player_template'
 
     def get_header(self):
         return GlobalConstants.OBJ_BASE_ATTRIBUTES
