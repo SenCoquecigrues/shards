@@ -1,6 +1,6 @@
 import logging
 
-from .db_handler import JsonDb, SqliteDb
+from .db_handler import SqliteDb
 
 
 class DbAdapter:
@@ -16,8 +16,6 @@ class DbAdapter:
         match db_type:
             case "sqlite":
                 return SqliteDb()
-            case "json":
-                return JsonDb()
             case _:
                 raise ValueError("Invalid database type.")
 

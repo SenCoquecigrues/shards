@@ -8,7 +8,7 @@ from utils import csv_writer
 from view import CommandHandler
 
 
-class TestImportCsv(unittest.TestCase):
+class TestImportCsvToDisc(unittest.TestCase):
     def setUp(self):
         # Set up a test_import_file rather than using the real
         # one, so test datas won't get polluted.
@@ -86,13 +86,3 @@ class TestImportCsv(unittest.TestCase):
                 }
                 self.assertTrue(len(instance_dicts) == 2)
                 self.assertEqual(instance_dicts[0], projected_result)
-
-# TODO
-# TEST3 : block if entry already exists
-# TEST3-2 (later?): block if data check fails regarding fields
-
-# if not, then save it
-# If not: log the error and the object name (ideally the file number?)
-# Log success as well
-# Rename file to avoid re-import
-# This should be extensively tested

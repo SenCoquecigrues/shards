@@ -1,16 +1,18 @@
 # Shards (v.0.0.0)
 
-1. [Introduction](#introduction)
+1. [Presentation](#presentation)
+    - [Architecture](#architecture)
+    - [Working functionality](#working-functionalities)
+    - [Testing](#testing)
 2. [Systems](#systems)
    - [Social System](#social-system)
    - [Exploration System](#exploration-system)
    - [Item generation](#item-generation)
-     -  [CSV templates](#csv-templates)
 3. [Tasks](#tasks)
     -  [TODO]()
 4. [Advanced Features](#advanced-features)
 
-## Introduction
+## Presentation
 *Shards* is a complex project, and platform choice is still up in the air. Therefore, some of the most complex mechanics will be done as platform-agnostic as we can.
 
 **Current goal**: MVP.
@@ -27,8 +29,9 @@ It also loads its necessary components:
 ### Working functionalities
 - `python3 main.py generate_templates`: generate CSV templates inside `utils/template_files` to fill for imports.
 - `python3 main.py import_csv {FILE_NAME}`: import any CSV placed inside `utils/import_files` to save it into the database. This allow us to create characters, domains, places on the fly. For file names, use `cha_` for characters, `dom_` for domains, `place_` for places, `player_` for player profiles.
+- `python main.py tests`: see [Testing](#testing) for more options.
 
-### Tests
+### Testing
 Tests are more end-to-end than unitary.
 
 Our test structure: one class per module. Classes may have as many methods as wished.
@@ -67,10 +70,7 @@ Moving parts:
 - Various type of events? Shards, items, stats increase? Send shards who like you in mission?
 
 ### Item generation
-Use CSV with special categories, which is transformed into a json file sorted in various folders (characters, items, domains, dialogs, character dialogs)
-
-#### CSV templates
-Title will determine import type:
+Use CSV with special categories. Title will determine import type:
 - char_
 - item_
 - dom_
@@ -79,14 +79,17 @@ Title will determine import type:
 - char_dial
 
 ## Tasks
-### TODO (goal: MVP without db)
+### TODO (goal: MVP without social system)
 ~~- Create CSV for character, domain, place~~
 ~~- Determining starting player fields~~
 ~~- Start test handling~~
 ~~- Display adapter system (text)~~
+- CSV to character, domain, place dict
+- Field validators
+- Validated JSON to DB
+- Granular validation return
 - DB adapter system
 - DB connection: starting create a player character
 - DB connection: remember a player's latest screen (for text platforms)
 - Ultimately, change for a trait notation system from 0 to 10
 - Creating a dialog name norm
-- CSV to character, domain, place
