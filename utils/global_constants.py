@@ -56,6 +56,6 @@ class GlobalConstants:
     ######### ATTRIBUTES
     OBJ_BASE_ATTRIBUTES = ["reference", "name", "element"]
 
-    CHAR_BASE_ATTRIBUTES = ["reference", "name", "element", "pack"]
+    CHAR_BASE_ATTRIBUTES = OBJ_BASE_ATTRIBUTES + ["pack"]
 
     DOMAIN_BASE_ATTRIBUTES = OBJ_BASE_ATTRIBUTES + ["level", ]
