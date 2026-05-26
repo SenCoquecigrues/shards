@@ -81,13 +81,18 @@ Use CSV with special categories. Title will determine import type:
 ## Tasks
 ### TODO (goal: MVP without social system)
 ~~- Create CSV for character, domain, place~~
+
 ~~- Determining starting player fields~~
+
 ~~- Start test handling~~
+
 ~~- Display adapter system (text)~~
-- CSV to character, domain, place dict
-- Field validators
-- Validated JSON to DB
+
+~~- Field validators~~
+
 - Granular validation return
+- CSV to character, domain, place dict
+- Validated JSON to DB
 - DB adapter system
 - DB connection: starting create a player character
 - DB connection: remember a player's latest screen (for text platforms)

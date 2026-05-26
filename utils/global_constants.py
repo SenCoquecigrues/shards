@@ -10,6 +10,8 @@ class GlobalConstants:
     WOUND = "wound"
     SPARK = "spark"
 
+    ELEMENTS = [SPACE, WATER, FORBIDDEN, WOUND, SPARK]
+    
     CHAR_TRAITS = {
         "honesty_humility": [
             "sincerity",
