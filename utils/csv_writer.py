@@ -46,6 +46,15 @@ class CharacterWriter(CsvWriter):
         return result
 
 
+class DomainWriter(CsvWriter):
+    def __init__(self):
+        super().__init__()
+        self.title = 'dom_template'
+
+    def get_header(self):
+        return GlobalConstants.DOMAIN_BASE_ATTRIBUTES
+
+
 class PlaceWriter(CsvWriter):
     def __init__(self):
         super().__init__()
@@ -55,10 +64,10 @@ class PlaceWriter(CsvWriter):
         return GlobalConstants.OBJ_BASE_ATTRIBUTES
 
 
-class DomainWriter(CsvWriter):
+class PlayerWriter(CsvWriter):
     def __init__(self):
         super().__init__()
-        self.title = 'dom_template'
+        self.title = 'place_template'
 
     def get_header(self):
-        return GlobalConstants.DOMAIN_BASE_ATTRIBUTES
+        return GlobalConstants.OBJ_BASE_ATTRIBUTES

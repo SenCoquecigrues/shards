@@ -5,7 +5,6 @@ class GlobalConstants:
     WOUND = "wound"
     SPARK = "spark"
 
-
     CHAR_TRAITS = {
         "honesty_humility": [
             "sincerity",
