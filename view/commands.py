@@ -13,16 +13,30 @@ class CommandHandler:
 
         if len(sys.argv) > 1:
             match sys.argv[1]:
+                case "import":
+                    self.import_objects_from_csv(sys.argv)
+                case "generate_tables":
+                    self.generate_tables()
                 case "generate_templates":
                     self.generate_templates()
                 case "tests":
                     self.run_tests()
-                case "import":
-                    self.import_objects_from_csv(sys.argv)
                 case _:
                     logging.error("Commande inconnue")
 
             os._exit(1)
+
+    def import_objects_from_csv(self, args):
+        if len(args) == 2:
+            raise AttributeError("Please indicate which file to import.")
+
+        file_name = args[2]
+        csv_writer = return_proper_csvhandler(file_name)
+        instances_dict = csv_writer.get_dicts_from_csv(file_name)
+
+    def generate_tables(self):
+        # TODO: generate tables from serialisers
+        pass
 
     def generate_templates(self):
         char_writer = CharacterCsvHandler()
@@ -36,15 +50,6 @@ class CommandHandler:
 
         player_writer = PlayerCsvHandler()
         player_writer.write_csv()
-
-    def import_objects_from_csv(self, args):
-        if len(args) == 2:
-            raise AttributeError("Please indicate which file to import.")
-
-        file_name = args[2]
-        csv_writer = return_proper_csvhandler(file_name)
-        instances_dict = csv_writer.get_dicts_from_csv(file_name)
-
 
     """
         Command format:

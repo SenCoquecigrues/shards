@@ -6,6 +6,9 @@ from .validators import *
 class Field:
     def __init__(self, field_name:str, value: any):
         self.value = value
+        if not is_proper_field_name(field_name):
+            error_msg = f"Field name {field_name} is not proper field name"
+            raise ValueError(error_msg)
         self.field_name = field_name
         self.validators = []
 
@@ -81,7 +84,12 @@ class FloatField(NumberField):
     Check that value is also inside a chosen group
 """
 class EntryOfListField(Field):
-    def __init__(self, value: any, field_name="entry of list", values_list=[], strict_mode=False):
+    def __init__(self,
+         value: any,
+         field_name="entry_of_list",
+         values_list=[],
+         strict_mode=False
+     ):
         super().__init__(field_name, value)
         self.validators = [ 
             partial(

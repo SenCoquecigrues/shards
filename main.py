@@ -1,6 +1,6 @@
 import settings
 
-from db.db_adapter import DbAdapter
+from db import DbHandler
 from view.commands import CommandHandler
 from view.text_screens import MainScreen, WelcomeScreen
 from utils.global_constants import GlobalConstants
@@ -9,7 +9,8 @@ if __name__ == "__main__":
     command_handler = CommandHandler()
 
     screen_displayer = None
-    db_handler = DbAdapter(settings.DB_TYPE)
+    db_handler = DbHandler()
+    db_handler.check_tables_integrity()
 
     if settings.DISPLAY_TYPE in GlobalConstants.TEXT_DISPLAYS:
         screen_displayer = WelcomeScreen()
