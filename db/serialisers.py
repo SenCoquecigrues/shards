@@ -1,4 +1,7 @@
-from .fields import EntryOfListField, IntField, ReferenceField, StringField
+import inspect, sys
+
+from db import fields
+
 from utils.global_constants import GlobalConstants
 
 """
@@ -7,10 +10,10 @@ from utils.global_constants import GlobalConstants
     with the database: check if datas can be be made 
     into a new table row, initialise the table itself... 
 """
-class Serialiser:
+class BaseSerialiser:
     table_name = ""
     def __init__(self, reference: str):
-        self.reference = ReferenceField(reference)
+        self.reference = fields.ReferenceField(reference)
 
     @classmethod
     def init(cls):
@@ -39,14 +42,30 @@ class Serialiser:
                 pass
 
 
-class DomainSerialiser(Serialiser):
+class DomainSerialiser(BaseSerialiser):
     table_name = "domain"
     def __init__(self, reference: str, name: str, element: str, level: int):
         super().__init__(reference=reference)
-        self.name = StringField(value=name, field_name="name", max_size=40)
-        self.element = EntryOfListField(
+        self.name = fields.StringField(value=name, field_name="name", max_size=40)
+        self.element = fields.EntryOfListField(
             value=element,
             field_name="element",
             values_list=GlobalConstants.ELEMENTS
         )
-        self.level = IntField(value=level, field_name="level", max_amount=5)
+        self.level = fields.IntField(value=level, field_name="level", max_amount=5)
+
+
+def get_all_serialisers():
+    current_module = sys.modules[__name__]
+    all_used_serialisers = []
+
+    for name, obj in inspect.getmembers(current_module):
+#    for name, obj in inspect.getmembers(serialisers):
+        if (
+            inspect.isclass(obj) and
+            obj.__name__.endswith("Serialiser") and
+            not obj == BaseSerialiser
+        ):
+            all_used_serialisers.append(obj)
+
+    return all_used_serialisers

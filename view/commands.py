@@ -27,6 +27,7 @@ class CommandHandler:
             os._exit(1)
 
     def import_objects_from_csv(self, args):
+        #TODO: remember that you still have to finish this once db's ready!
         if len(args) == 2:
             raise AttributeError("Please indicate which file to import.")
 

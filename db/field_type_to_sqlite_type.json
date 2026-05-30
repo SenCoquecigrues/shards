@@ -1,0 +1,6 @@
+{
+    "STR": "TEXT",
+    "LONG_STR": "TEXT",
+    "INT": "INTEGER",
+    "FLOAT": "REAL"
+}

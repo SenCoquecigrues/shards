@@ -10,13 +10,16 @@ if __name__ == "__main__":
 
     screen_displayer = None
     db_handler = DbHandler()
-    db_handler.check_tables_integrity()
 
     if settings.DISPLAY_TYPE in GlobalConstants.TEXT_DISPLAYS:
         screen_displayer = WelcomeScreen()
     else:
         raise ValueError("Incorrect display type.")
 
+    if settings.TABLE_INITIALISATION == GlobalConstants.MANUAL_MODE:
+        db_handler.check_tables_integrity()
+    else:
+        db_handler.create_tables_if_not_exist()
     screen = WelcomeScreen()
     screen.display_screen()
     #page.display_screen()

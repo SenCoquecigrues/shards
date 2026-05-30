@@ -18,13 +18,16 @@
 **Current goal**: MVP.
 
 ### Architecture
-
 We have a "main.py" file which represent our current entry point. It loads the CommandHandler, which takes some init commands such as "generate_templates" (generating the CSV templates that will help populate our future DB) and so on.
 
 It also loads its necessary components:
 - `view`, which will load `Screen` objects. `Screens` represent a scene with its specific text (the text is hosted in view/utils, in json format). Text will be displayed differently depending on the `DISPLAY_TYPE` variable, thanks to being parsed with the help of view/utils/{DISPLAY_TYPE}.json if the display_type is in text form.
-- `db`, which will handle db-related functionalities.
+- `db`, which will handle db-related functionalities, including serialisers.
 - `mechanics`, which will hold inner components such as the social system, perhaps time passing, etc.
+
+We follow the following principles: one object type to save (character, domain, etc.) = one Serialiser = one table.
+
+One object attribute = one Serialiser Field = one column in the table.
 
 ### Working functionalities
 - `python3 main.py generate_templates`: generate CSV templates inside `utils/template_files` to fill for imports.
@@ -80,17 +83,15 @@ Use CSV with special categories. Title will determine import type:
 
 ## Tasks
 ### TODO (goal: MVP without social system)
-~~- Create CSV for character, domain, place~~
-
-~~- Determining starting player fields~~
-
-~~- Start test handling~~
-
-~~- Display adapter system (text)~~
-
-~~- Field validators~~
-
+#### DONE
+- Create CSV for character, domain, place
+- Determining starting player fields
+- Start test handling
+- Display adapter system (text)
+- Field validators
 - Granular validation return
+
+#### TODO
 - CSV to character, domain, place dict
 - Validated JSON to DB
 - DB adapter system
@@ -98,3 +99,5 @@ Use CSV with special categories. Title will determine import type:
 - DB connection: remember a player's latest screen (for text platforms)
 - Ultimately, change for a trait notation system from 0 to 10
 - Creating a dialog name norm
+- Eventually, stop committing db
+- Later on, check that serialisers are consistent with table schematics

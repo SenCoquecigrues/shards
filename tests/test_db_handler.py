@@ -13,7 +13,7 @@ class TestDbHandler(unittest.TestCase):
         except:
             pass
 
-    def test_crash_if_table_miss(self):
+    def test_crash_if_tables_missing(self):
         with self.assertLogs(level='CRITICAL') as context_manager:
             with patch(
                 'db.get_db_path',
@@ -30,5 +30,21 @@ class TestDbHandler(unittest.TestCase):
         )       
 
     def test_crash_if_tables_dont_fit_models(self):
-        #TODO: implement later
-        pass 
+        #TODO: make it work!
+        db_handler = DbHandler()
+        db_handler.check_serialisers_coherent_with_db()
+        print("a")
+        with self.assertLogs(level='CRITICAL') as context_manager:
+            with patch(
+                    'db.get_db_path',
+                    return_value=Path(__file__).parents[0] / 'sqlite.db'
+            ):
+                with self.assertRaises(ConnectionError):
+                    db_handler = DbHandler()
+                    db_handler.check_tables_integrity()
+
+            self.assertTrue(
+                context_manager.output[0].startswith(
+                    "CRITICAL:root:Missing aas"
+                )
+            )

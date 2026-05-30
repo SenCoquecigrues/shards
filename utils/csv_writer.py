@@ -94,13 +94,7 @@ class CharacterCsvHandler(CsvHandler):
         self.template_title = 'char_template'
 
     def get_header(self):
-        character_traits = GlobalConstants.CHAR_TRAITS
-        result = GlobalConstants.CHAR_BASE_ATTRIBUTES
-
-        for facets_list in character_traits.keys():
-            result.extend(character_traits[facets_list])
-
-        return result
+        return GlobalConstants.CHAR_BASE_ATTRIBUTES
 
 
 class DomainCsvHandler(CsvHandler):
